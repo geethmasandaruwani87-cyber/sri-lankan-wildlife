@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Lankan Wildlife - ශ්‍රී ලංකා වන ජීවී | Birds</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">🐘 Sri Lankan Wildlife</div>
+            <ul id="nav-menu">
+                <li><a href="index.html" data-page="home">Home</a></li>
+                <li><a href="animals.html" data-page="animals">Animals</a></li>
+                <li><a href="parks.html" data-page="parks">Parks</a></li>
+                <li><a href="birds.html" data-page="birds" class="active">Birds</a></li>
+                <li><a href="gallery.html" data-page="gallery">Gallery</a></li>
+                <li><a href="contact.html" data-page="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="birds" class="page">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Birds of Sri Lanka</h1>
+            </div>
+        </div>
+        
+        <!-- Birds Section -->
+        <section class="container">
+            <h2>Featured Birds</h2>
+
+            <div class="info-section">
+                <h3>🦜 Sri Lanka's Avian Diversity</h3>
+                <p>Sri Lanka is home to over 500 bird species, with 34 endemic species found nowhere else on Earth. The island is a paradise for birdwatchers and ornithologists.</p>
+            </div>
+            
+            <div class="cards">
+                <!-- Junglefowl -->
+                <div class="card" onclick="showBirdDetails('junglefowl')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🐓</div>
+                    <div class="card-content">
+                        <h3>Ceylon Junglefowl</h3>
+                        <p>The national bird of Sri Lanka, this endemic species is found in forests across the island.</p>
+                        <span class="card-badge">National Bird</span>
+                    </div>
+                </div>
+                <!-- Peafowl -->
+                <div class="card" onclick="showBirdDetails('peafowl')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🦚</div>
+                    <div class="card-content">
+                        <h3>Indian Peafowl</h3>
+                        <p>The peacock's stunning display of colorful feathers makes it one of the most beautiful birds.</p>
+                        <span class="card-badge">Common</span>
+                    </div>
+                </div>
+                <!-- Hornbill -->
+                <div class="card" onclick="showBirdDetails('hornbill')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">🦜</div>
+                    <div class="card-content">
+                        <h3>Malabar Pied Hornbill</h3>
+                        <p>Large birds with distinctive casques on their bills, playing important ecological roles.</p>
+                        <span class="card-badge">Resident</span>
+                    </div>
+                </div>
+                <!-- Kingfisher -->
+                <div class="card" onclick="showBirdDetails('kingfisher')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">🐦</div>
+                    <div class="card-content">
+                        <h3>White-throated Kingfisher</h3>
+                        <p>A common and colorful kingfisher species found near water bodies throughout Sri Lanka.</p>
+                        <span class="card-badge">Common</span>
+                    </div>
+                </div>
+                <!-- Owl -->
+                <div class="card" onclick="showBirdDetails('owl')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">🦉</div>
+                    <div class="card-content">
+                        <h3>Spot-bellied Eagle-Owl</h3>
+                        <p>A powerful nocturnal predator endemic to the Indian subcontinent including Sri Lanka.</p>
+                        <span class="card-badge">Nocturnal</span>
+                    </div>
+                </div>
+                <!-- Parrot -->
+                <div class="card" onclick="showBirdDetails('parrot')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">🦜</div>
+                    <div class="card-content">
+                        <h3>Ceylon Hanging Parrot</h3>
+                        <p>A small endemic parrot known for its unique habit of sleeping while hanging upside down.</p>
+                        <span class="card-badge">Endemic</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div id="birdModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sri Lankan Wildlife. All rights reserved.</p>
+            <p>🌿 Protecting and preserving Sri Lanka's natural heritage 🌿</p>
+            <p style="margin-top: 1rem;">Made with ❤️ for Wildlife Conservation</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const birdData = {
+            junglefowl: {
+                name: 'Ceylon Junglefowl',
+                emoji: '🐓',
+                description: 'The national bird of Sri Lanka and an endemic species. Males are brightly colored while females are brownish.',
+                facts: [
+                    'Status: National Bird of Sri Lanka',
+                    'Habitat: Forests and scrublands',
+                    'Diet: Seeds, fruits, insects',
+                    'Behavior: Ground-dwelling'
+                ]
+            },
+            peafowl: {
+                name: 'Indian Peafowl',
+                emoji: '🦚',
+                description: 'Famous for the peacock’s colorful feather displays used in courtship.',
+                facts: [
+                    'Habitat: Open forests and grasslands',
+                    'Diet: Seeds, insects, reptiles',
+                    'Male Display: 200+ tail feathers',
+                    'Conservation Status: Least Concern'
+                ]
+            },
+            hornbill: {
+                name: 'Malabar Pied Hornbill',
+                emoji: '🦜',
+                description: 'Large bird with a huge bill and casque, plays a key role in seed dispersal.',
+                facts: [
+                    'Habitat: Evergreen forests',
+                    'Diet: Fruits and small animals',
+                    'Conservation: Near Threatened',
+                    'Behavior: Female seals nest cavity'
+                ]
+            },
+            kingfisher: {
+                name: 'White-throated Kingfisher',
+                emoji: '🐦',
+                description: 'Common kingfisher, often seen near water bodies, with bright blue wings and red beak.',
+                facts: [
+                    'Diet: Fish, insects, small reptiles',
+                    'Call: Loud, laughing-like',
+                    'Size: 27–28 cm long',
+                    'Conservation: Least Concern'
+                ]
+            },
+            owl: {
+                name: 'Spot-bellied Eagle-Owl',
+                emoji: '🦉',
+                description: 'A powerful nocturnal predator with distinctive calls, found in dense forests.',
+                facts: [
+                    'Size: 50–65 cm',
+                    'Diet: Small mammals, reptiles, birds',
+                    'Habitat: Forests',
+                    'Activity: Nocturnal'
+                ]
+            },
+            parrot: {
+                name: 'Ceylon Hanging Parrot',
+                emoji: '🦜',
+                description: 'A small green parrot endemic to Sri Lanka, known for sleeping upside down.',
+                facts: [
+                    'Size: 13 cm',
+                    'Diet: Nectar, fruits, flowers',
+                    'Behavior: Sleeps upside down',
+                    'Conservation: Least Concern'
+                ]
+            }
+        };
+
+        function showBirdDetails(bird) {
+            const data = birdData[bird];
+            const modal = document.getElementById('birdModal');
+            const modalBody = document.getElementById('modalBody');
+
+            modalBody.innerHTML = `
+                <div style="text-align: center; font-size: 4rem; margin-bottom: 1rem;">${data.emoji}</div>
+                <h2 style="color: #667eea; margin-bottom: 0.5rem;">${data.name}</h2>
+                <p style="margin-bottom: 1.5rem; line-height: 1.6;">${data.description}</p>
+                <h3 style="color: #667eea; margin-bottom: 1rem;">Key Facts:</h3>
+                <ul style="list-style: none; padding: 0;">
+                    ${data.facts.map(fact => `<li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ ${fact}</li>`).join('')}
+                </ul>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('birdModal').classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('birdModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

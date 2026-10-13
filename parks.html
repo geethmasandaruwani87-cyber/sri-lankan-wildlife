@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sri Lanka's National Parks - Explore the rich biodiversity and natural heritage of Sri Lanka.">
+    <meta name="keywords" content="Sri Lanka national parks, Yala, Wilpattu, Udawalawe, Sinharaja, Horton Plains, Kumana">
+    <meta name="author" content="Sri Lankan Wildlife">
+    <title>Sri Lankan Wildlife - ශ්‍රී ලංකා වන ජීවී | National Parks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">🐘 Sri Lankan Wildlife</div>
+            <ul id="nav-menu">
+                <li><a href="index.html" data-page="home">Home</a></li>
+                <li><a href="animals.html" data-page="animals">Animals</a></li>
+                <li><a href="parks.html" data-page="parks" class="active">Parks</a></li>
+                <li><a href="birds.html" data-page="birds">Birds</a></li>
+                <li><a href="gallery.html" data-page="gallery">Gallery</a></li>
+                <li><a href="contact.html" data-page="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="parks" class="page">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>National Parks of Sri Lanka</h1>
+            </div>
+        </div>
+        
+        <!-- Parks Section -->
+        <section class="container">
+            <h2>Featured Parks</h2>
+            
+            <div class="cards">
+                <!-- Yala -->
+                <div class="card" onclick="showParkDetails('yala')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🦁</div>
+                    <div class="card-content">
+                        <h3>Yala National Park</h3>
+                        <p>Famous for the highest leopard density in the world and diverse wildlife.</p>
+                        <span class="card-badge popular">Most Popular</span>
+                    </div>
+                </div>
+
+                <!-- Wilpattu -->
+                <div class="card" onclick="showParkDetails('wilpattu')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">🌊</div>
+                    <div class="card-content">
+                        <h3>Wilpattu National Park</h3>
+                        <p>Sri Lanka's largest park, famous for its unique natural lakes (villus).</p>
+                        <span class="card-badge">Largest Park</span>
+                    </div>
+                </div>
+
+                <!-- Udawalawe -->
+                <div class="card" onclick="showParkDetails('udawalawe')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">🐘</div>
+                    <div class="card-content">
+                        <h3>Udawalawe National Park</h3>
+                        <p>Best place to see large herds of elephants in the wild.</p>
+                        <span class="card-badge">Elephant Haven</span>
+                    </div>
+                </div>
+
+                <!-- Sinharaja -->
+                <div class="card" onclick="showParkDetails('sinharaja')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">🌳</div>
+                    <div class="card-content">
+                        <h3>Sinharaja Forest</h3>
+                        <p>UNESCO World Heritage rainforest, home to endemic flora and fauna.</p>
+                        <span class="card-badge">UNESCO Site</span>
+                    </div>
+                </div>
+
+                <!-- Horton Plains -->
+                <div class="card" onclick="showParkDetails('horton')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">⛰️</div>
+                    <div class="card-content">
+                        <h3>Horton Plains</h3>
+                        <p>Famous for World's End cliff and montane ecosystems with rare species.</p>
+                        <span class="card-badge">World’s End</span>
+                    </div>
+                </div>
+
+                <!-- Kumana -->
+                <div class="card" onclick="showParkDetails('kumana')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">🦜</div>
+                    <div class="card-content">
+                        <h3>Kumana National Park</h3>
+                        <p>A premier bird-watching destination with migratory and resident species.</p>
+                        <span class="card-badge">Bird Paradise</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div id="parkModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sri Lankan Wildlife. All rights reserved.</p>
+            <p>🌿 Protecting and preserving Sri Lanka's natural heritage 🌿</p>
+            <p style="margin-top: 1rem;">Made with ❤️ for Wildlife Conservation</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+    const parkData = {
+        yala: {
+            name: 'Yala National Park',
+            emoji: '🦁',
+            description: 'Located in the southeast, Yala is the most visited and second largest national park in Sri Lanka. It is famous for its leopards, elephants, sloth bears, and diverse birdlife.',
+            facts: [
+                'Area: 979 km²',
+                'Famous for: Leopards (highest density in the world)',
+                'Other wildlife: Elephants, sloth bears, crocodiles',
+                'Best time to visit: February - July'
+            ],
+            link: 'https://www.dwc.gov.lk/wnp/yala-national-park/' // official link
+        },
+        wilpattu: {
+            name: 'Wilpattu National Park',
+            emoji: '🌊',
+            description: 'The largest national park in Sri Lanka, Wilpattu is unique for its "villus" – natural sand-rimmed lakes. It is known for leopards, sloth bears, and bird species.',
+            facts: [
+                'Area: 1,317 km²',
+                'Unique feature: Over 60 natural lakes',
+                'Wildlife: Leopards, elephants, sloth bears',
+                'Best time to visit: February - October'
+            ],
+            link: 'https://www.dwc.gov.lk/wnp/wilpattu-national-park/'
+        },
+        udawalawe: {
+            name: 'Udawalawe National Park',
+            emoji: '🐘',
+            description: 'Famous for its large elephant population, Udawalawe is one of the best places in Asia to see wild elephants up close.',
+            facts: [
+                'Area: 308 km²',
+                'Highlight: Large herds of elephants',
+                'Other wildlife: Water buffalo, deer, crocodiles',
+                'Best time to visit: All year round'
+            ],
+            link: 'https://www.dwc.gov.lk/wnp/udawalawe-national-park/'
+        },
+        sinharaja: {
+            name: 'Sinharaja Forest Reserve',
+            emoji: '🌳',
+            description: 'Sri Lanka’s last viable area of primary tropical rainforest, Sinharaja is a UNESCO World Heritage Site. It is rich in endemic species of birds, mammals, and plants.',
+            facts: [
+                'Area: 88 km²',
+                'UNESCO World Heritage Site',
+                'Wildlife: Endemic birds, reptiles, amphibians',
+                'Best time to visit: December - April'
+            ],
+            link: 'https://whc.unesco.org/en/list/405/' // official UNESCO page
+        },
+        horton: {
+            name: 'Horton Plains',
+            emoji: '⛰️',
+            description: 'A montane national park famous for World’s End cliff and Baker’s Falls. It is home to unique flora and fauna adapted to highland ecosystems.',
+            facts: [
+                'Area: 31 km²',
+                'Highlight: World’s End & Baker’s Falls',
+                'Wildlife: Sambar deer, endemic birds',
+                'Best time to visit: January - March'
+            ],
+            link: 'https://www.dwc.gov.lk/wnp/horton-plains-national-park/'
+        },
+        kumana: {
+            name: 'Kumana National Park',
+            emoji: '🦜',
+            description: 'Located in the southeast, Kumana is famous for its rich birdlife, particularly migratory waterfowl and wading birds.',
+            facts: [
+                'Area: 357 km²',
+                'Highlight: Migratory birds',
+                'Wildlife: Pelicans, herons, painted storks',
+                'Best time to visit: April - July'
+            ],
+            link: 'https://www.dwc.gov.lk/wnp/kumana-national-park/'
+        }
+    };
+
+    function showParkDetails(park) {
+        const data = parkData[park];
+        const modal = document.getElementById('parkModal');
+        const modalBody = document.getElementById('modalBody');
+
+        modalBody.innerHTML = `
+            <div style="text-align: center; font-size: 4rem; margin-bottom: 1rem;">${data.emoji}</div>
+            <h2 style="color: #667eea; margin-bottom: 0.5rem;">${data.name}</h2>
+            <p style="margin-bottom: 1.5rem; line-height: 1.6;">${data.description}</p>
+            <h3 style="color: #667eea; margin-bottom: 1rem;">Key Facts:</h3>
+            <ul style="list-style: none; padding: 0;">
+                ${data.facts.map(fact => `<li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ ${fact}</li>`).join('')}
+            </ul>
+            <div style="text-align:center; margin-top: 1.5rem;">
+                <a href="${data.link}" target="_blank" 
+                   style="display:inline-block; background:#667eea; color:white; padding:10px 20px; border-radius:8px; text-decoration:none;">
+                   🌐 Visit Official Website
+                </a>
+            </div>
+        `;
+
+        modal.classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('parkModal').classList.remove('active');
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('parkModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+</body>
+</html>

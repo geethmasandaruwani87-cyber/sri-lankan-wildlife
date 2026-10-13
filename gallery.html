@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Lankan Wildlife - ශ්‍රී ලංකා වන ජීවී | Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gallery grid styles */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">🐘 Sri Lankan Wildlife</div>
+            <ul id="nav-menu">
+                <li><a href="index.html" data-page="home">Home</a></li>
+                <li><a href="animals.html" data-page="animals">Animals</a></li>
+                <li><a href="parks.html" data-page="parks">Parks</a></li>
+                <li><a href="birds.html" data-page="birds">Birds</a></li>
+                <li><a href="gallery.html" data-page="gallery" class="active">Gallery</a></li>
+                <li><a href="contact.html" data-page="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="gallery" class="page">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Wildlife Gallery</h1>
+            </div>
+        </div>
+
+<main>
+  <div id="slider">
+    <button class="prev" onclick="prev()">&#9664;</button> <!-- ◀ -->
+    <img id="slide" src="image/image_eb80021894.jpg" alt="slider">
+    <button class="next" onclick="next()">&#9654;</button> <!-- ▶ -->
+  </div>
+</main>
+
+
+<script>
+let pics = [
+  "image/asia_sri_lanka_Kumana_national_park_sloht_bear_walking_gallery.jpg",
+  "image/360_F_1026545931_Rm5iSoTjnabAmfJkyqXtgZA45sn21et1.jpg",
+  "image/Ceylon-Junglefowl.jpg",
+  "image/wolf_animal_picture_realistic_contrast_6936303.jpg",
+  "image/wildlife-bundala-national-park-sri-lanka.jpg",
+  "image/couple-nocturnal-animals-malayan-porcupine-hystrix-brachyura-nature-kaengkrajarn-national-park-thailand-42455818.webp",
+  "image/MVL_20170903_6529-varaan-web.jpg",
+  "image/Mugger-repeater.webp",
+  "image/Wild-Life.jpg",
+  "image/unnamed.jpg",
+  "image/29.jpg",
+  "image/keoladeo-ghana-national.jpg",
+  "image/wildlife-maduru-oya-national-park-sri-lanka.jpg",
+  "image/little-beige-orange-bird-with-high-comb-sitting-tree-branch_181624-23344.jpg",
+  "image/sambar-deer-in-horton-plains-in-sri-lanka-4.jpg",
+  "image/National_Animal_1200x675px_01_08_25.jpg",
+  "image/Sri_Lanka_SL_Day_7_Elephant_GettyImages-534789901.jpg.webp",
+  "image/istockphoto-1337043796-612x612.jpg",
+  "image/macaque-monkeys-in-sri-lanka-4.jpg"
+];
+
+let i = 0;
+function show(){
+  document.getElementById("slide").src = pics[i];
+}
+function prev(){
+  i = (i - 1 + pics.length) % pics.length;
+  show();
+}
+function next(){
+  i = (i + 1) % pics.length;
+  show();
+}
+setInterval(next, 4000); // Auto change every 4 seconds
+</script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sri Lankan Wildlife. All rights reserved.</p>
+            <p>🌿 Protecting and preserving Sri Lanka's natural heritage 🌿</p>
+            <p style="margin-top: 1rem;">Made with ❤️ for Wildlife Conservation</p>
+        </div>
+    </footer>
+</body>
+</html>

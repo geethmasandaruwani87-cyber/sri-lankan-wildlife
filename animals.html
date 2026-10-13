@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Sri Lankan wildlife including elephants, leopards, and other endemic mammals. Learn about endangered species and conservation efforts.">
+    <meta name="keywords" content="Sri Lankan wildlife, elephants, leopards, mammals, endangered species, wildlife conservation">
+    <meta name="author" content="Sri Lankan Wildlife">
+    <title>Sri Lankan Wildlife - ශ්‍රී ලංකා වන ජීවී | Animals & Mammals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">🐘 Sri Lankan Wildlife</div>
+            <ul id="nav-menu">
+                <li><a href="index.html" data-page="home">Home</a></li>
+                <li><a href="animals.html" data-page="animals" class="active">Animals</a></li>
+                <li><a href="parks.html" data-page="parks">Parks</a></li>
+                <li><a href="birds.html" data-page="birds">Birds</a></li>
+                <li><a href="gallery.html" data-page="gallery">Gallery</a></li>
+                <li><a href="contact.html" data-page="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="animals" class="page">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Sri Lankan Mammals</h1>
+            </div>
+        </div>
+        
+        <!-- Animals Section -->
+        <section class="container">
+            <h2>Featured Mammals</h2>
+            
+            <div class="cards">
+                <!-- Elephant -->
+                <div class="card" onclick="showAnimalDetails('elephant')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">🐘</div>
+                    <div class="card-content">
+                        <h3>Sri Lankan Elephant</h3>
+                        <p>The largest land animal in Sri Lanka, elephants play a crucial role in forest ecosystems.</p>
+                        <span class="card-badge endangered">Endangered</span>
+                    </div>
+                </div>
+
+                <!-- Leopard -->
+                <div class="card" onclick="showAnimalDetails('leopard')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🐆</div>
+                    <div class="card-content">
+                        <h3>Sri Lankan Leopard</h3>
+                        <p>An endemic subspecies and apex predator with highest density at Yala National Park.</p>
+                        <span class="card-badge endemic">Endemic</span>
+                    </div>
+                </div>
+
+                <!-- Sloth Bear -->
+                <div class="card" onclick="showAnimalDetails('bear')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🐻</div>
+                    <div class="card-content">
+                        <h3>Sloth Bear</h3>
+                        <p>Nocturnal bears with long shaggy fur, known for their insect-eating habits.</p>
+                        <span class="card-badge vulnerable">Vulnerable</span>
+                    </div>
+                </div>
+
+                <!-- Spotted Deer -->
+                <div class="card" onclick="showAnimalDetails('deer')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">🦌</div>
+                    <div class="card-content">
+                        <h3>Spotted Deer</h3>
+                        <p>Also known as Chital, these beautiful deer are common in forests and grasslands.</p>
+                        <span class="card-badge common">Common</span>
+                    </div>
+                </div>
+
+                <!-- Sambar Deer -->
+                <div class="card" onclick="showAnimalDetails('sambar')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">🦌</div>
+                    <div class="card-content">
+                        <h3>Sambar Deer</h3>
+                        <p>The largest deer species in Sri Lanka, preferring dense forests near water.</p>
+                        <span class="card-badge common">Common</span>
+                    </div>
+                </div>
+
+                <!-- Water Buffalo -->
+                <div class="card" onclick="showAnimalDetails('buffalo')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">🐃</div>
+                    <div class="card-content">
+                        <h3>Water Buffalo</h3>
+                        <p>Wild water buffalo found in wetlands and near water bodies throughout the island.</p>
+                        <span class="card-badge endangered">Endangered</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for Animal Details -->
+    <div id="animalModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sri Lankan Wildlife. All rights reserved.</p>
+            <p>🌿 Protecting and preserving Sri Lanka's natural heritage 🌿</p>
+            <p style="margin-top: 1rem;">Made with ❤️ for Wildlife Conservation</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Animal details data
+        const animalData = {
+            elephant: {
+                name: 'Sri Lankan Elephant',
+                emoji: '🐘',
+                scientific: 'Elephas maximus maximus',
+                description: 'The Sri Lankan elephant is a subspecies of the Asian elephant. They are the largest living land animals in Sri Lanka and play a vital role in maintaining the island\'s ecosystem.',
+                facts: [
+                    'Population: Approximately 6,000 elephants',
+                    'Height: Up to 3.2 meters at shoulder',
+                    'Weight: 2,000 to 5,500 kg',
+                    'Habitat: Forests, grasslands, and cultivated areas',
+                    'Diet: Herbivores - eat up to 150kg of vegetation daily'
+                ]
+            },
+            leopard: {
+                name: 'Sri Lankan Leopard',
+                emoji: '🐆',
+                scientific: 'Panthera pardus kotiya',
+                description: 'An endemic subspecies found only in Sri Lanka. Yala National Park has one of the highest leopard densities in the world.',
+                facts: [
+                    'Status: Endangered endemic subspecies',
+                    'Population: Estimated 700-950 individuals',
+                    'Weight: 50-77 kg',
+                    'Habitat: Dry zone forests and grasslands',
+                    'Diet: Carnivore - hunts deer, wild boar, and smaller mammals'
+                ]
+            },
+            bear: {
+                name: 'Sloth Bear',
+                emoji: '🐻',
+                scientific: 'Melursus ursinus',
+                description: 'Nocturnal bears with distinctive long, shaggy fur. They have specialized lips and tongues for feeding on insects.',
+                facts: [
+                    'Status: Vulnerable',
+                    'Weight: 80-145 kg',
+                    'Height: 60-90 cm at shoulder',
+                    'Diet: Primarily termites, ants, and fruits',
+                    'Behavior: Mainly nocturnal and solitary'
+                ]
+            },
+            deer: {
+                name: 'Spotted Deer (Chital)',
+                emoji: '🦌',
+                scientific: 'Axis axis',
+                description: 'Beautiful deer with white spots on their reddish-brown coat. They are one of the most common deer species in Sri Lankan national parks.',
+                facts: [
+                    'Height: 90 cm at shoulder',
+                    'Weight: 30-75 kg',
+                    'Habitat: Forests and grasslands',
+                    'Diet: Grasses, leaves, and fruits',
+                    'Social: Live in herds of 10-50 individuals'
+                ]
+            },
+            sambar: {
+                name: 'Sambar Deer',
+                emoji: '🦌',
+                scientific: 'Rusa unicolor',
+                description: 'The largest deer species in Sri Lanka. They prefer dense forests near water sources and are mostly active during dawn and dusk.',
+                facts: [
+                    'Height: Up to 1.6 meters at shoulder',
+                    'Weight: 100-315 kg',
+                    'Habitat: Dense forests near water',
+                    'Diet: Grasses, leaves, fruits, and aquatic plants',
+                    'Behavior: Mostly solitary or in small groups'
+                ]
+            },
+            buffalo: {
+                name: 'Water Buffalo',
+                emoji: '🐃',
+                scientific: 'Bubalus arnee',
+                description: 'Wild water buffalo found in wetlands and near water bodies. They are critically endangered in the wild.',
+                facts: [
+                    'Status: Endangered',
+                    'Weight: 700-1,200 kg',
+                    'Height: 1.5-1.9 meters',
+                    'Habitat: Wetlands, marshes, and riverbanks',
+                    'Diet: Aquatic plants, grasses, and herbs'
+                ]
+            }
+        };
+
+        // Show animal details
+        function showAnimalDetails(animal) {
+            const data = animalData[animal];
+            const modal = document.getElementById('animalModal');
+            const modalBody = document.getElementById('modalBody');
+            
+            modalBody.innerHTML = `
+                <div style="text-align: center; font-size: 4rem; margin-bottom: 1rem;">${data.emoji}</div>
+                <h2 style="color: #667eea; margin-bottom: 0.5rem;">${data.name}</h2>
+                <p style="font-style: italic; color: #666; margin-bottom: 1rem;">${data.scientific}</p>
+                <p style="margin-bottom: 1.5rem; line-height: 1.6;">${data.description}</p>
+                <h3 style="color: #667eea; margin-bottom: 1rem;">Key Facts:</h3>
+                <ul style="list-style: none; padding: 0;">
+                    ${data.facts.map(fact => `<li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ ${fact}</li>`).join('')}
+                </ul>
+            `;
+            
+            modal.classList.add('active');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('animalModal').classList.remove('active');
+        }
+
+        // Close when clicking outside modal
+        window.onclick = function(event) {
+            const modal = document.getElementById('animalModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
